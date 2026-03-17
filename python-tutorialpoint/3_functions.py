@@ -81,3 +81,14 @@ sum = lambda arg1, arg2: arg1 + arg2;
 # Now you can call sum as a function
 print ("Value of total : ", sum( 10, 20 ))
 print ("Value of total : ", sum( 20, 20 ))
+
+#
+# __file__ returns the physical name of the module.
+#
+# __package__ returns the package to which the module belongs.
+#
+# __doc__ returns the docstring at the top of the module if any
+#
+# __dict__ returns the entire scope of the module
+#
+# __name__ returns the name of the module
