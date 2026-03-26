@@ -31,3 +31,60 @@ print(desktopObj.sell())
 # modifying the price using setter function
 desktopObj.set_max_price(35000)
 print(desktopObj.sell())
+
+#!/usr/bin/python
+# define parent class
+class Parent:
+   parentAttr = 100
+   def __init__(self):
+      print ("Calling parent constructor")
+   def parentMethod(self):
+      print ("Calling parent method")
+   def setAttr(self, attr):
+      Parent.parentAttr = attr
+   def getAttr(self):
+      print ("Parent attribute :", Parent.parentAttr)
+
+# define child class
+class Child(Parent):
+   def __init__(self):
+      print ("Calling child constructor")
+   def childMethod(self):
+      print ("Calling child method")
+# instance of child
+c = Child()
+# child calls its method
+c.childMethod()
+# calls parent's method
+c.parentMethod()
+# again call parent's method
+c.setAttr(200)
+# again call parent's method
+c.getAttr()
+
+
+# define parent class
+class Parent:
+   def myMethod(self):
+      print ("Calling parent method")
+# define child class
+class Child(Parent):
+   def myMethod(self):
+      print ("Calling child method")
+# instance of child
+c = Child()
+# child calls overridden method
+c.myMethod()
+
+
+class Vector:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    def __str__(self):
+        return 'Vector (%d, %d)' % (self.a, self.b)
+    def __add__(self, other):
+        return Vector(self.a + other.a, self.b + other.b)
+v1 = Vector(2, 10)
+v2 = Vector(5, -2)
+print(v1 + v2)
