@@ -1,0 +1,19 @@
+# A function in Python is a first-order object.
+# A function can have another function as its argument and wrap another function definition inside it.
+# This helps in modifying a function without actually changing it.
+# Such functions are called decorators.
+
+def decorator_function(Wrapped):
+    class Wrapper:
+        def __init__(self, x):
+            self.wrap = Wrapped(x)
+        def print_name(self):
+            return self.wrap.name
+    return Wrapper
+
+@decorator_function
+class Wrapped:
+    def __init__(self, x):
+        self.name = x
+obj = Wrapped('TutorialsPoint')
+print(obj.print_name())
