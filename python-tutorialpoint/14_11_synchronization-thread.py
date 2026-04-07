@@ -78,3 +78,7 @@ thread2.start()
 thread1.join()
 thread2.join()
 print("Exiting Main Thread")
+
+#   RLocks (Reentrant Locks): A variant of locks that allow a thread to acquire the same lock multiple times before releasing it, useful in recursive functions or nested function calls.
+#   Semaphores:Similar to locks but with a counter. Threads can acquire the semaphore up to a certain limit defined during initialization. Semaphores are useful for limiting access to resources with a fixed capacity.
+#   Barriers: Allows a fixed number of threads to synchronize at a barrier point and continue executing only when all threads have reached that point. Barriers are useful for coordinating a group of threads that must all complete a certain phase of execution before any of them can proceed further.
