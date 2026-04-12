@@ -19,3 +19,14 @@ def get_user_from_db(user_id):
 with patch('__main__.get_user_from_db', return_value={"name": "Prasad", "age": 25}):
    user = get_user_from_db("prasad_id")
    print(user)
+
+
+# Criteria	Mocking	Stubbing
+# Purpose	Simulate the behavior of real objects	Provide fixed, predetermined responses
+# Interaction Verification	Can verify method calls and arguments	Typically does not verify interactions
+# Complexity	More complex; can simulate various behaviors	Simpler; focuses on providing controlled inputs
+# Use Case	Isolate and test code with complex dependencies	Simplify tests by providing known responses
+# Recording Behavior	Records how methods were called	Does not record interactions
+# State Management	Can maintain state across calls	Usually stateless; returns fixed output
+# Framework Support	Primarily uses unittest.mock with features like Mock and MagicMock	Uses unittest.mock's patch for simple replacements
+# Flexibility	Highly flexible; can simulate exceptions and side effects	Limited flexibility; focused on return values
