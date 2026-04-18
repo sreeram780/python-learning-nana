@@ -58,3 +58,20 @@ print(obj.attr)
 obj.attr = 100
 print(obj.attr)
 del obj.attr
+
+# Non Data Descriptors
+class Default:
+   def __init__(self, default):
+      self.default = default
+
+   def __get__(self, instance, owner):
+      return getattr(instance, '_value', self.default)
+
+class MyClass:
+   attr = Default("default_value")
+
+# Usage
+obj = MyClass()
+print(obj.attr)
+obj._value = "Tutorialspoint"
+print(obj.attr)
