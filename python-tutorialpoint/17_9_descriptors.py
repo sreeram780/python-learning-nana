@@ -32,4 +32,29 @@ del p.name
 print(p.name)
 
 del p.age
-print(p.age)   
+print(p.age)
+
+# Data descriptor
+class Integer:
+   def __get__(self, instance, owner):
+      print("Getting value")
+      return instance._value
+
+   def __set__(self, instance, value):
+      print("Setting value")
+      if not isinstance(value, int):
+         raise TypeError("Value must be an integer")
+      instance._value = value
+
+   def __delete__(self, instance):
+      print("Deleting value")
+      del instance._value
+class MyClass:
+   attr = Integer()
+# Usage
+obj = MyClass()
+obj.attr = 42
+print(obj.attr)
+obj.attr = 100
+print(obj.attr)
+del obj.attr
