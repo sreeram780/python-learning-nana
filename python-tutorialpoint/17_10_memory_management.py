@@ -50,3 +50,19 @@ print(f"Unreachable objects: {unreachable_objects}")
 # Get a list of all objects tracked by the garbage collector
 all_objects = gc.get_objects()
 print(f"Number of tracked objects: {len(all_objects)}")
+
+# 2. Using "tracemalloc"
+#
+import tracemalloc
+# Start tracing memory allocations
+tracemalloc.start()
+# our code here
+a = 10
+b = 20
+c = a+b
+# Take a snapshot of current memory usage
+snapshot = tracemalloc.take_snapshot()
+# Display the top 10 memory-consuming lines
+top_stats = snapshot.statistics('lineno')
+for stat in top_stats[:10]:
+   print(stat)
