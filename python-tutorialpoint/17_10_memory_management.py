@@ -66,3 +66,21 @@ snapshot = tracemalloc.take_snapshot()
 top_stats = snapshot.statistics('lineno')
 for stat in top_stats[:10]:
    print(stat)
+
+# 3. Using "memory_profiler"
+from memory_profiler import profile
+@profile
+def my_function():
+    # our code here
+    a = 10
+    b = 20
+    c = a + b
+
+if __name__ == "__main__":
+    my_function()
+# Fixing Memory Leaks
+#   Eliminate Global Variables: Avoid using global variables unless and untill absolutely necessary. Instead we can use local variables or pass objects as arguments to functions.
+#   Break Circular References: Use weak references to break cycles where possible. The weakref module allows us to create weak references that do not prevent garbage collection.
+#   Manual Cleanup: Explicitly delete objects or remove references when they are no longer needed.
+#   Use Context Managers: Ensure resources that are properly cleaned up using context managers i.e. with statement.
+#   Optimize Data Structures Use appropriate data structures that do not unnecessarily hold onto references.
