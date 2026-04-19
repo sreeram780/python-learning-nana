@@ -38,3 +38,15 @@ def create_closure():
    return closure
 my_closure = create_closure()
 # The large_object is retained by the closure, causing a memory leak.
+
+# Tools for Diagnosing Memory Leaks
+# 1. Using the "gc" Module
+import gc
+# Enable automatic garbage collection
+gc.enable()
+# Collect garbage and return unreachable objects
+unreachable_objects = gc.collect()
+print(f"Unreachable objects: {unreachable_objects}")
+# Get a list of all objects tracked by the garbage collector
+all_objects = gc.get_objects()
+print(f"Number of tracked objects: {len(all_objects)}")
