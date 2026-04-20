@@ -26,3 +26,20 @@ try:
 except TypeError as e:
    print(f"Error: {e}")
 print("Original tuple:", my_tuple)
+
+
+# Example demonstrating string immutability
+my_string = "Hello"
+
+# Attempting to modify a string will create a new string instead of modifying the original
+modified_string = my_string + " Learners"
+print(modified_string)  # Output: Hello Learners
+
+# Original string remains unchanged
+print(my_string)  # Output: Hello
+
+# Trying to modify the string directly will raise an error
+try:
+   my_string[0] = 'h'  # TypeError: 'str' object does not support item assignment
+except TypeError as e:
+   print(f"Error: {e}")
