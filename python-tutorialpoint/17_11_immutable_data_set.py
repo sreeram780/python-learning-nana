@@ -59,3 +59,21 @@ except AttributeError as e:
    print(f"Error: {e}")
 # The original frozenset remains unchanged
 print("Original frozenset:", frozen_set)
+
+# Understanding Named Tuples Immutability in Python
+
+from collections import namedtuple
+# Define a named tuple called Point with fields 'x' and 'y'
+Point = namedtuple('Point', ['x', 'y'])
+# Create an instance of Point
+p = Point(x=1, y=2)
+print(p)
+# Attempt to modify the named tuple
+# This will raise an AttributeError since named tuples are immutable
+try:
+   p.x = 10
+except AttributeError as e:
+   print(f"Error occurred: {e}")
+# Accessing elements in a named tuple is similar to accessing elements in a regular tuple
+print(p.x)
+print(p.y)
