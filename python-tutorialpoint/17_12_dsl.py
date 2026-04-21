@@ -26,3 +26,20 @@ class demo:
 result = demo()
 result.set("host", "Welcome").set("port", 1231)
 print(result.get("host"))
+
+# Example 3
+class demo:
+    def __init__(x, dataset):
+        x.dataset = dataset
+    def where(x, condition):
+        x.dataset = [item for item in x.dataset if condition(item)]
+        return x
+    def select(x, selector):
+        return [selector(item) for item in x.dataset]
+users = [
+    {"name": "Ram", "age": 10},
+    {"name": "Ravi", "age": 24},
+    {"name": "Rahul", "age": 19},
+]
+result = demo(users).where(lambda u: u["age"] > 18).select(lambda u: u["name"])
+print(result)
