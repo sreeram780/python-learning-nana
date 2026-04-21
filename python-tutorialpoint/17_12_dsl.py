@@ -6,3 +6,10 @@
 # @app.route('/home')
 # def home():
 #     return "Hello...!"
+
+# Example 1
+def add(x, y):
+    return x + y
+def multiply(x, y):
+    return x * y
+print(add(multiply(1, 3), multiply(2, 4)))
