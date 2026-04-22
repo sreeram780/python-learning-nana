@@ -15,3 +15,24 @@ class demo:
 v = demo(3, 5)
 print(v)
 print(repr(v))
+
+
+# Arithmetic Operations
+class demo:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+
+    def __add__(self, other):
+        return demo(self.x + other.x, self.y + other.y)
+
+    def __mul__(self, scalar):
+        return demo(self.x * scalar, self.y * scalar)
+
+x1 = demo(2, 3)
+x2 = demo(4, 5)
+print(x1 + x2)
+print(x1 * 2)
