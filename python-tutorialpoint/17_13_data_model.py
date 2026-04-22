@@ -36,3 +36,26 @@ x1 = demo(2, 3)
 x2 = demo(4, 5)
 print(x1 + x2)
 print(x1 * 2)
+
+# We will implement the __len__() for len(object).
+# We will implement the __bool__() for the boolean evaluation.
+
+import math
+class demo:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+    def __add__(self, other):
+        return demo(self.x + other.x, self.y + other.y)
+    def __mul__(self, scalar):
+        return demo(self.x * scalar, self.y * scalar)
+    def __len__(self):
+        return 2
+    def __bool__(self):
+        return bool(math.hypot(self.x, self.y))
+v = demo(0, 0)
+print(bool(v))
+v = demo(3, 4)
+print(bool(v))
