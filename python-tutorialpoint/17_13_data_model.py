@@ -59,3 +59,13 @@ v = demo(0, 0)
 print(bool(v))
 v = demo(3, 4)
 print(bool(v))
+
+# Equality Comparison
+class demo:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+    def __eq__(self, other):
+        return (self.x, self.y) == (other.x, other.y)
+v1 = demo(2, 3)
+v2 = demo(2, 3)
+print(v1 == v2)
